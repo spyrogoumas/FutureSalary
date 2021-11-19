@@ -1,0 +1,39 @@
+import java.util.Scanner; 
+/**
+ *
+ * @author Administrator
+ */
+public class JavaApplication2 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    Scanner console = new Scanner(System.in); 
+       
+      System.out.print("Enter Your Annual Salary: ");    
+      double salary = console.nextDouble();
+       
+      System.out.print("Enter The Amount of Years You've Been Working For: ");
+      int year = console.nextInt();
+        
+      System.out.print("Your salary in " + year + " years will be: "); 
+      System.out.println(calcFutureSalary(salary,year));
+    }
+    public static double calcFutureSalary(double currentSalary, int year){ 
+    
+     double rookie = currentSalary * 0.03 + currentSalary;
+     double intermediate = currentSalary * 0.05 + currentSalary;
+     double veteran = currentSalary * 0.08 + currentSalary; 
+    
+    if (year < 3) {
+        currentSalary = rookie; 
+    } else if (year >= 3 || year < 10) {
+        currentSalary = intermediate;
+    } else {
+        currentSalary = veteran; 
+    }
+        return currentSalary;
+     
+    }
+}
